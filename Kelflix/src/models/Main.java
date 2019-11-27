@@ -22,7 +22,7 @@ public class Main {
 		User user1 = new User(1, 123456, 132, "123465", "Kelly", "k@gmail.com");
 		usuarios.add(1,user1);
 		gerenciar.cadastrarUsuario(user1);
-		gerenciar.listUsers();
+	//	gerenciar.listUsers();
 //		admin.nome = "Admin";
 //		admin.senha = 1234;
 		
