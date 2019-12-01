@@ -39,4 +39,31 @@ public class TratandoExcessoes extends Exception{
 		}
 		return senha1;	
 	}
+	
+	 public boolean ehNumero(String elemento){
+	        return elemento.matches("[0-9]+");
+	    }
+	
+	public String verificarCpf(String cpf) {
+		boolean flag = false;
+		while(!flag){
+			try {
+				cpf = input.nextLine();
+				if(cpf.length() == 11) {
+					if(ehNumero(cpf)) {
+						flag = true;
+						System.out.println("CPF válido");
+					}
+				}
+				else {
+					throw new Exception();
+				}
+				
+			}catch(Exception e){
+				flag = false;
+				System.out.println("Dados invalidos, só pode ter números e 11 digitos");
+			}
+		}
+		return cpf;
+	}
 }

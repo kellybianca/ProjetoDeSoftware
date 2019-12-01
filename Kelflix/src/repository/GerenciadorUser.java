@@ -74,7 +74,9 @@ public class GerenciadorUser implements IGerenciador {
                 listUsers.get(i).setIdade(idade);
         
                 System.out.println("CPF: ");
-                listUsers.get(i).setCpf(input.nextLine());
+                String cpf = null;
+                cpf = excessoes.verificarCpf(cpf);
+                listUsers.get(i).setCpf(cpf);
             }
    
         }
