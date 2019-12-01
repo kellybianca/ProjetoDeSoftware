@@ -19,15 +19,6 @@ public class Cartao extends TipoPagamento {
     	this.validade = validade;
     	this.codigo = codigo;
     }
-    
-    public String Cartao() {
-    	String cartao;
-    	cartao = "\nBandeira : "+this.bandeira+"\n";
-    	cartao += "Número do Cartão: "+this.numeroCartao+"\n";
-    	cartao += "Validade do cartão: "+this.validade+"\n";
-    	cartao += "Código segurança: "+this.codigo+"\n";
-    	return cartao;
-    }
 
 	public String getBandeira() {
 		return bandeira;

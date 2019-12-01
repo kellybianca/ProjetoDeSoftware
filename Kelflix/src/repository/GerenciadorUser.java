@@ -3,12 +3,14 @@ package repository;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import excessoes.TratandoExcessoes;
 import interfaceModels.IGerenciador;
 import models.User;
 
 public class GerenciadorUser implements IGerenciador {
     Scanner input;
     ArrayList<User> listUsers;
+    TratandoExcessoes excessoes = new TratandoExcessoes();
 
     public GerenciadorUser(){
     	this.listUsers = new ArrayList<User>();
@@ -59,15 +61,17 @@ public class GerenciadorUser implements IGerenciador {
                 listUsers.get(i).setNome(input.nextLine());
         
                 System.out.println("Senha: ");
-                listUsers.get(i).setSenha(input.nextInt());
-                input.nextLine();
+                int senha = 0;
+                senha = excessoes.lerInteiro(senha);
+                listUsers.get(i).setSenha(senha);
         
                 System.out.println("Email: ");
                 listUsers.get(i).setEmail(input.nextLine());
         
                 System.out.println("Idade: ");
-                listUsers.get(i).setIdade(input.nextInt());
-                input.nextLine();
+                int idade = 0;
+                idade = excessoes.lerInteiro(idade);
+                listUsers.get(i).setIdade(idade);
         
                 System.out.println("CPF: ");
                 listUsers.get(i).setCpf(input.nextLine());

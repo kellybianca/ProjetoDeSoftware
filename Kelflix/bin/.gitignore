@@ -1,6 +1,4 @@
-/interfaceModels/
-/modelPacoteAssinatura/
-/modelTipoPagamento/
 /models/
+/excessoes/
 /repository/
-/videos/
+/modelTipoPagamento/

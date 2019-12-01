@@ -1,7 +1,6 @@
 package repository;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import interfaceModels.IGerenciador;
 import modelTipoPagamento.Boleto;
@@ -25,7 +24,7 @@ public class GerenciadorTipoPagamento extends TipoPagamento implements IGerencia
     	adicionar(boleto);
     }
     public void adicionandoTipo(Cartao cartao) {
-	  adicionandoTipo(cartao);
+    	adicionar(cartao);
     }
 
     @Override

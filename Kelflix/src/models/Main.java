@@ -1,20 +1,22 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import excessoes.*;
 import repository.GerenciadorUser;
 public class Main {
 
 	public static void main(final String[] args) {
 		Scanner input = new Scanner(System.in);
-		
-	
+			
 		System.out.println("Bem vindo ao kelflix");
 		System.out.println("Digite uma das opções abaixo: ");
 		System.out.println("(1) Login\n(2) Cadastro\n(3) Logout");
 		
 		GerenciadorUser gerenciar = new GerenciadorUser();
 		ArrayList<User> usuarios = new ArrayList<>();
+		TratandoExcessoes excessao = new TratandoExcessoes();
 		
 		User admin = new User(0,123,21,"123","Admin","Admin@gmail,com");
 		usuarios.add(0, admin);
@@ -25,12 +27,12 @@ public class Main {
 
 		
 		String nome;
-		int senha;
 		User user;
 		
 		
-		int op = input.nextInt();
-		input.nextLine();
+		int op = 0;
+		op = excessao.lerInteiro(op);
+//		input.nextLine();
 		
 		while(true) {
 
@@ -39,8 +41,9 @@ public class Main {
 
 				System.out.println("Fazer login com: (1)Admin ou (2)Usuario");
 				
-				int escolha = input.nextInt();
-				input.nextLine();
+				int escolha = 0;
+				escolha = excessao.lerInteiro(escolha);
+//				input.nextLine();
 				
 				Login telaLogin = new Login();
 				if(escolha == 1) {
@@ -52,7 +55,8 @@ public class Main {
 					}
 					
 					System.out.println("Insira sua senha: ");
-					senha = input.nextInt();
+					int senha = 0;
+					senha = excessao.lerInteiro(senha);
 					input.nextLine();
 					
 					if(senha != admin.getSenha()) {
@@ -81,8 +85,9 @@ public class Main {
 					} else {
 					
 						System.out.println("Insira sua senha: ");
-						senha = input.nextInt();
-						input.nextLine();
+						int senha = 0;
+						senha = excessao.lerInteiro(senha);
+//						input.nextLine();
 						
 						if(senha == userlogin.getSenha()) {
 							System.out.println("Login realizado com sucesso\nBem vind@ "+nome);
@@ -104,17 +109,19 @@ public class Main {
 				System.out.println("Digite os dados a seguir para concluir o seu cadastro: ");
 				System.out.println("Nome: ");
 				user.nome = input.nextLine();
-
 				System.out.println("Senha: ");
-				user.setSenha(input.nextInt());
-				input.nextLine();
+				int senha1 = 0;
+				senha1 = excessao.lerInteiro(senha1);
+				user.setSenha(senha1);
 
 				System.out.println("Email: ");
 				user.email = input.nextLine();
 
 				System.out.println("Idade: ");
-				user.idade = input.nextInt();
-				input.nextLine();
+				int idade = 0;
+				idade = excessao.lerInteiro(idade);
+//				input.nextLine();
+				user.idade = idade;
 
 				System.out.println("CPF: ");
 				user.setCpf(input.nextLine());
@@ -132,9 +139,13 @@ public class Main {
 			}
 			System.out.println("Digite uma das opções abaixo: ");
 			System.out.println("(1) Login\n(2) Cadastro\n(3) Logout");
-			op = input.nextInt();
-			input.nextLine();
+			op = 0;
+			op = excessao.lerInteiro(op);
+//			input.nextLine();
 		}
 	}
+
+
+
 
 }
